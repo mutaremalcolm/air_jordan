@@ -1,38 +1,63 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- Headings -->
+<div align="center">
+    <h1>Air Jordan</h1>
+    <h6>
+        Built with <a href="https://nextjs.org">Next.js</a> &
+        hosted by <a href="https://vercel.com/">Vercel</a> 
+    </h6>
+    <h4>
+      <a href="https://air-jordan-chi.vercel.app/" target="_blank">
+        🔗 Demo Website
+      </a>
+    </h4>
+    <h4>
+      <a href="https://github.com/users/mutaremalcolm/projects/14" target="_blank">
+        🔗 Project Kanban (See the development steps)
+      </a>
+    </h4>
+    <hr>
+</div>
 
-## Getting Started
+# **Introduction**
+**Air Jordan** (yes, a play on the basketball player) is a dashboard web application that provides **real-time pollution data** for any location in the world. This project was an exciting opportunity to work with a **large dataset via API calls** and display **live environmental data**. 
 
-First, run the development server:
+The application leverages data from the **OpenWeather API**, incorporates **geocoding for location searches**, and includes **map functionality** to enhance the user experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **Project Goals**
+1. **Real-Time Data Retrieval**
+   - Fetches **live air quality index (AQI) data** for any location worldwide.
+   - Ensures up-to-the-minute accuracy using OpenWeather’s Air Pollution API.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+2. **AQI Visualization**
+   - Displays **AQI levels** in a user-friendly gauge format.
+   - Provides a clear **color-coded system** to help users quickly interpret air quality.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. **Pollutant Breakdown**
+   - Lists the **main air pollutants** (CO, NO2, O3, PM2.5, PM10, etc.).
+   - Helps users understand which pollutants contribute to poor air quality.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+4. **Location Search Functionality**
+   - Users can search for **any city or coordinates** to get localized air quality data.
+   - Implements geocoding to convert city names into latitude/longitude values.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+5. **Interactive Map Integration**
+   - Displays the searched location on an interactive map.
+   - Utilizes **Mapbox** for a seamless and visually engaging map experience.
+   - Allows users to **explore different regions** and their air quality levels.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## **Tech Stack**
+- **Framework**: Next.js (React-based)
+- **Styling**: Tailwind CSS
+- **APIs Used**:
+  - OpenWeather Air Pollution API (for AQI data)
+  - OpenWeather Geocoding API (for location searches)
+  - Mapbox API (for map rendering)
+- **Hosting**: Vercel
+- **State Management**: React Hooks (useState, useEffect)
+- **Additional Libraries**: Axios (for API calls), Dynamic Imports (for SSR optimizations)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
