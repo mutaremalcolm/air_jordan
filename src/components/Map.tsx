@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useState} from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 
-const accessToken = process.env.MAPBOXGL_ACCESSTOKEN;
+mapboxgl.accessToken = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA'
 
 interface MapProps {
     accessToken: any;
@@ -68,3 +68,5 @@ const Map: React.FC<MapProps> = ({ lat, lon }) => {
         </div>
     )
 }
+
+export default Map;
