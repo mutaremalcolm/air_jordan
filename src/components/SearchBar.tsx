@@ -12,7 +12,7 @@ const SearchBar: React.FC<{
         setSearchQuery(input);
 
         // API call to MapBox Geocoding API for autocomplete suggestions
-        const apiKey = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA';
+        const apiKey = process.env.NEXT_PUBLIC_MAPBOXGL_ACCESSTOKEN;
         const autocompleteUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${input}.json?access_token=${apiKey}&autocomplete=true&limits=5`;
 
         fetch(autocompleteUrl)
@@ -39,8 +39,7 @@ const SearchBar: React.FC<{
     };
 
     const fetchCoordinatesForSuggestion = (selectedSuggestion: string) => {
-        // API call fails when keys are stored in .env
-        const apiKey = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA';
+        const apiKey = process.env.NEXT_PUBLIC_MAPBOXGL_ACCESSTOKEN;
         const coordinatesUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${selectedSuggestion}.json?access_token=${apiKey}&limit=1`;
 
         fetch(coordinatesUrl)

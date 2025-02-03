@@ -38,9 +38,8 @@ const AirData: React.FC = () => {
   const aqiValues = [0, 100, 70, 50, 30, 10];
   const gaugeValue = aqiValues[data?.aqi || 0];
 
-  //API call breaks when key is moved to .env
-  const API_KEY = 'c97db47d82b6bbf966cae6012985fc1d';
-  const MAP_TOKEN = process.env.MAPBOXGL_ACCESS_TOKEN;
+  const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+  const MAP_TOKEN = process.env.PUBLIC_NEXT_MAPBOXGL_ACCESS_TOKEN;
 
   const fetchAirPollutionData = async () => {
     try {
