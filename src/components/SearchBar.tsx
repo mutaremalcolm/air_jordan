@@ -12,7 +12,7 @@ const SearchBar: React.FC<{
         setSearchQuery(input);
 
         // API call to MapBox Geocoding API for autocomplete suggestions
-        const apiKey = process.env.MAPBOXGL_ACCESSTOKEN;
+        const apiKey = process.env.NEXT_PUBLIC_MAPBOXGL_ACCESSTOKEN;
         const autocompleteUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${input}.json?access_token=${apiKey}&autocomplete=true&limits=5`;
 
         fetch(autocompleteUrl)
@@ -20,7 +20,7 @@ const SearchBar: React.FC<{
             .then((data) => {
                 if (data.features) {
                     const suggestions = data.features.map((feature: any) => feature.place_name);
-                    setSuggestions([]);
+                    setSuggestions(suggestions);
                 } else {
                     setSuggestions([]);
                 }
@@ -39,7 +39,7 @@ const SearchBar: React.FC<{
     };
 
     const fetchCoordinatesForSuggestion = (selectedSuggestion: string) => {
-        const apiKey = '';
+        const apiKey = process.env.NEXT_PUBLIC_MAPBOXGL_ACCESSTOKEN;
         const coordinatesUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${selectedSuggestion}.json?access_token=${apiKey}&limit=1`;
 
         fetch(coordinatesUrl)
@@ -68,9 +68,10 @@ const SearchBar: React.FC<{
         <form onSubmit={handleSubmit} className='z-30 w-full relative'>
             <label htmlFor='default-search' className='mb-2 text-sm font-medium text-gray-900 sr-only'>Search</label>
             <div className='relative'>
+                {/* TODO: resolve search icon bug */}
                 <div className='absolute inset-y-0 left-0 flex items-center pl-3 pointer-event-none'>
                     <svg className='w-4 h-4 text-gray-500 dark:text-gray-400' aria-hidden='true' xmlns='https://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20' >
-                        <path stroke='currentColor' strokeLinecap='round' strokeWidth='round strokeWidth=2' d='m19 19-4-4m0-7A7 7 0 0 1 14 0Z'/>
+                        <path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'/>
                     </svg>
                 </div>
                 <input 

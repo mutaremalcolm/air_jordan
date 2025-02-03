@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
 import { Inter } from 'next/font/google';
 import Loader from '@/components/Loader';
 import AirData from '@/components/AirData';
@@ -21,6 +22,10 @@ const Home: React.FC<HomeProps> = () => {
 
   return (
     <>
+      <Head>
+        <title>Air Jordan | Air Pollution Dashboard</title>
+        <link rel='icon' href='/airLogo.png' sizes='any'/>
+      </Head>
       <main className={`min-h-screen flex flex-col items-center justify-between p-16 overscroll-none z-10 ${inter.className}`}>
         <div
           id='data-container'
