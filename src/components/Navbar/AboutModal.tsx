@@ -37,7 +37,7 @@ const AboutModal: React.FC = () => {
                                 {/* Body */}
                                 <div className='relative p-6 flex-auto'>
                                     <p className='my-4 text-slate-200 text-lg leading-relaxed'>
-                                        Welcome to Air Jordan! An air pollution data dashboard.
+                                        Welcome to Air Jordan! An air pollution data dashboard. 
                                         <br />
                                         <br />
                                         Seamlessly developed with Typescript, React, Tailwind CSS, and Next.js,
