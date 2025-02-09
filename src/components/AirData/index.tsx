@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState, useCallback} from 'react';
 import axios from 'axios';
 import GaugeDisplay from './GaugeDisplay';
 import AirDataGrid from './AirDataGrid';
@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin']})
 
-// Dynamiic import for Map Component
+// Dynamic import for Map Component
 const Map: any = dynamic(
   () => import('../../components/Map'),
   {
@@ -34,6 +34,7 @@ const AirData: React.FC = () => {
 
   const [lat, setLat] = useState<number | undefined>(defaultLatitude);
   const [lon, setLon] = useState<number | undefined>(defaultLongitude);
+  const [isLoading, setIsLoading] = useState(false);
 
   const aqiValues = [0, 100, 70, 50, 30, 10];
   const gaugeValue = aqiValues[data?.aqi || 0];
@@ -41,7 +42,13 @@ const AirData: React.FC = () => {
   const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const MAP_TOKEN = process.env.PUBLIC_NEXT_MAPBOXGL_ACCESS_TOKEN;
 
-  const fetchAirPollutionData = async () => {
+  const fetchAirPollutionData = useCallback(async () => {
+    if (!API_KEY) {
+      console.error('API key is missing');
+      return
+    }
+
+    setIsLoading(true);
     try {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`
@@ -56,11 +63,11 @@ const AirData: React.FC = () => {
       console.error('Error fetching air pollution data:', error);
       setData(null);
     }
-  };
+  }, [API_KEY]);
 
   useEffect(()=> {
     fetchAirPollutionData();
-  });
+  },[fetchAirPollutionData]);
 
   const handleSearchLat = (newLat: number | any) => {
     setLat(newLat);
