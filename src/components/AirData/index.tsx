@@ -17,7 +17,13 @@ const Map: any = dynamic(
     loading: () => <p className='text-white m-auto'>A Map is loading...</p>,
     ssr: false //Prevents Server-Side render
   }
-)
+);
+
+interface AirData {
+  location: string,
+  components: Record<string, number>;
+  aqi: number;
+}
 
 const AirData: React.FC = () => {
 
@@ -63,7 +69,7 @@ const AirData: React.FC = () => {
       console.error('Error fetching air pollution data:', error);
       setData(null);
     }
-  }, [API_KEY]);
+  }, [lat, lon, API_KEY]);
 
   useEffect(()=> {
     fetchAirPollutionData();
