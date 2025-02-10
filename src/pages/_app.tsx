@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <main className={inter.className}>
+    <main className={inter.className} font-sans>
       <Layout>
         <Component {...pageProps} />
       </Layout>

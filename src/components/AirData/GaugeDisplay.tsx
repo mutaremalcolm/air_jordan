@@ -65,7 +65,7 @@ const GaugeDisplay: React.FC<GaugeProps> = ({  gaugeValue, data, dataAqi }) => {
 
             <h2
                 id='aqi'
-                className={`flex justify-center text-4xl p-5 text-center w-auto font-semibold ${inter.className} ${
+                className={`flex justify-center text-4xl p-5 text-center w-auto font-semibold ${inter.className} font-sans ${
                     data.aqi === 1
                     ? 'bg-gradient-to-r from-green-600 to-green-300 bg-clip-text text-transparent'
                     : data.aqi === 2

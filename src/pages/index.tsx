@@ -26,7 +26,7 @@ const Home: React.FC<HomeProps> = () => {
         <title>Air Jordan | Air Pollution Dashboard</title>
         <link rel='icon' href='/airLogo.png' sizes='any'/>
       </Head>
-      <main className={`min-h-screen flex flex-col items-center justify-between p-16 overscroll-none z-10 ${inter.className}`}>
+      <main className={`min-h-screen flex flex-col items-center justify-between p-16 overscroll-none z-10 ${inter.className} font-sans`}>
         <div
           id='data-container'
           className={`flex flex-col justify-center z-10 h-auto w-72 mt-auto mb-auto md:w-auto lg:justify-start max-w-2xl 2xl:max-w-[288px] 2xl:min-w-[288px] 
