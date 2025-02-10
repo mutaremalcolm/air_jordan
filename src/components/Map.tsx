@@ -2,25 +2,32 @@ import React, {useRef, useEffect, useState} from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoicmVkbGlvbjk1IiwiYSI6ImNsbTd0b2RydjAyamIzZGxidWg4azc3eDcifQ.niHxh5TLu_CUQZL-JMSLGA'
-
 interface MapProps {
-    accessToken: any;
     lat: number;
     lon: number;
+    mapToken: string
 }
 
-const Map: React.FC<MapProps> = ({ lat, lon }) => {
+const Map: React.FC<MapProps> = ({ lat, lon, mapToken }) => {
     const mapContainer = useRef<HTMLDivElement | null>(null);
     const map = useRef<mapboxgl.Map | null>(null);
     const marker = useRef<mapboxgl.Marker | null>(null);
     const [zoom, setZoom] = useState(2)
 
     useEffect(() => {
+        if (!mapToken) {
+            console.error('Mapbox token is required');
+            return;
+        }
+
+        // Set access token
+        mapboxgl.accessToken = mapToken
+
+
         if (!map.current && mapContainer.current) {
             const container: string | HTMLElement = mapContainer.current;
             map.current = new mapboxgl.Map({
-                container,
+                container: mapContainer.current,
                 style: 'mapbox://styles/mapbox/streets-v12',
                 center: [lon, lat],
                 zoom: zoom,
@@ -36,6 +43,7 @@ const Map: React.FC<MapProps> = ({ lat, lon }) => {
                 })
             );
 
+            // TODO: Refactor for a cleaner approach
             //Create a marker and add it to the map
             marker.current = new mapboxgl.Marker()
                 .setLngLat([lon, lat])
@@ -64,7 +72,7 @@ const Map: React.FC<MapProps> = ({ lat, lon }) => {
 
     return (
         <div>
-            <div ref={mapContainer} id='map-container'></div>
+            <div ref={mapContainer} id='map-container' className='h-full w-full'></div>
         </div>
     )
 }
