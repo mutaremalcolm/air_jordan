@@ -8,11 +8,12 @@ const nextConfig = {
           {
             key: 'Content-Security-Policy',
             value: [
-              "font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com;",
+              "default-src 'self';",
               "img-src 'self' data: blob: https://*.mapbox.com;",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.mapbox.com;",
-              "script-src 'self' 'unsafe-inline' https://api.mapbox.com;",
-              "connect-src 'self' https://api.mapbox.com https://events.mapbox.com https://fonts.googleapis.com https://fonts.gstatic.com;"
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.mapbox.com blob:;",
+              "worker-src 'self' blob:;",
+              "connect-src 'self' https://api.mapbox.com https://events.mapbox.com https://fonts.googleapis.com https://fonts.gstatic.com https://api.openweathermap.org;"
             ].join(' ')
           }
         ],

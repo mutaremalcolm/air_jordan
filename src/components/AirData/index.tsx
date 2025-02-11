@@ -7,14 +7,6 @@ import CoordinatesDisplay from "./CoordinatesDisplay";
 import Loader from "../Loader";
 import dynamic from "next/dynamic";
 
-import { Inter } from "next/font/google";
-const inter = Inter({ 
-            subsets: ["latin"],
-            display: 'swap',
-            weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
-
-           });
-
 // Dynamic import for Map Component
 const Map: any = dynamic(() => import("../../components/Map"), {
   loading: () => <p className="text-white m-auto">A Map is loading...</p>,

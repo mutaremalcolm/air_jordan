@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { Inter } from 'next/font/google';
+import { interFontClass } from '@/lib/fonts';
 
-const inter = Inter({ subsets: ['latin']})
 const GaugeComponent = dynamic(() => import('react-gauge-component'), { ssr: false });
 
 interface GaugeProps {
@@ -65,7 +64,7 @@ const GaugeDisplay: React.FC<GaugeProps> = ({  gaugeValue, data, dataAqi }) => {
 
             <h2
                 id='aqi'
-                className={`flex justify-center text-4xl p-5 text-center w-auto font-semibold ${inter.className} font-sans ${
+                className={`flex justify-center text-4xl p-5 text-center w-auto font-semibold ${interFontClass} font-sans ${
                     data.aqi === 1
                     ? 'bg-gradient-to-r from-green-600 to-green-300 bg-clip-text text-transparent'
                     : data.aqi === 2

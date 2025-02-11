@@ -1,13 +1,12 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "@/components/Layout";
-import { Inter } from "next/font/google";
+import { interFontClass } from "@/lib/fonts";
 
-const inter = Inter({ subsets: ["latin"] });
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <main className={inter.className} font-sans>
+    <main className={`${interFontClass}`} >
       <Layout>
         <Component {...pageProps} />
       </Layout>

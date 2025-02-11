@@ -2,9 +2,7 @@ import CountUp from 'react-countup';
 import { Tooltip } from 'react-tooltip';
 import Image from 'next/image';
 import TooltipIcon from '../../../public/icons8-info-16.png';
-
-import { Inter } from 'next/font/google';
-const inter = Inter({ subsets: ['latin'] })
+import { interFontClass } from '@/lib/fonts';
 
 interface AirDataGridProps {
     data: any;
@@ -63,7 +61,7 @@ const pollutantGases = [
 const AirDataGrid: React.FC<AirDataGridProps> = ({ data }) => {
     return (
         <>
-        <div id='data-grid' className={`text-lg text-center p-4 flex flex-col ${inter.className} font-sans grid grid-cols-3 grid-rows-3 rounded-2xl bg-black bg-clip-padding background-filter background-blur-md bg-opacity-20 border border-gray-100` }>
+        <div id='data-grid' className={`text-lg text-center p-4 flex flex-col ${interFontClass} font-sans grid grid-cols-3 grid-rows-3 rounded-2xl bg-black bg-clip-padding background-filter background-blur-md bg-opacity-20 border border-gray-100` }>
             {Object.entries(data.components).map(([key, value]) => (
                 <div key={key} className='flex flex-col justify-center w-full xl:h-14 border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0.12)]'>
                     <div className='flex flex-row justify-between w-full'>
