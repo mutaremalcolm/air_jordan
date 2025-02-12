@@ -10,6 +10,7 @@ interface AirDataGridProps {
     value: number;
 }
 
+// TODO: Move static data to lib for better readability
 const pollutantGases = [
     {
         ab: 'co',
@@ -66,6 +67,7 @@ const AirDataGrid: React.FC<AirDataGridProps> = ({ data }) => {
                 <div key={key} className='flex flex-col justify-center w-full xl:h-14 border-0 rounded-md p-1 bg-gray-100 bg-clip-padding backdrop-filter backdrop-blur-none bg-opacity-20 border-gray-100 shadow-[0_8px_30px_rgb(0,0,0.12)]'>
                     <div className='flex flex-row justify-between w-full'>
                     <p className=' text-sm font-light text-gray-200 flex flex-row justify-between'>{key}:</p>
+                    <Image data-tooltip-id={key} src={TooltipIcon} alt='info icon' width={16} />
                 </div>
                 <h3 className='text-center font-medium text-sm text-white w-full lg:mt-auto' key={key}>
                     <CountUp end={value as number} duration={6} decimals={2} decimal='.' />
