@@ -5,11 +5,9 @@ const Loader: React.FC = () => {
         <>
             <div className='flex flex-col justify-center w-full'>
                 <FadeLoader 
-                    color='#36d7b7'
-                    loading
+                    color='#36d'
                 />
             </div>
-            <h1 className='m-auto text-3xl bg-gradient-t0-r from-sky-600 to-cyan-500 bg-clip-text text-tranparent'>Loading...</h1>
         </>
     )
 
