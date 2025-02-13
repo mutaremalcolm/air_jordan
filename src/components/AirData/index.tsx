@@ -98,7 +98,7 @@ const AirData: React.FC = () => {
 
   return (
     <>
-      <div className="flex w-auto mt-5 mb-1 sm:mb-5 sm:mt-0 ">
+      <div className="flex w-auto mt-2 mb-1 sm:mb-5 sm:mt-0 ">
         <SearchBar setLat={handleSearchLat} setLon={handleSearchLon} />
       </div>
       <main
