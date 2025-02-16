@@ -15,19 +15,15 @@ const GaugeDisplay: React.FC<GaugeProps> = ({  gaugeValue, data, dataAqi }) => {
 
     const [aqiText, setAqiText] = useState<string>('');
     useEffect(() => {
-        if (data.aqi === 1) {
-            setAqiText('Good');
-        }else if (data.aqi === 2) {
-            setAqiText('Fair');
-        }else if (data.aqi === 3) {
-            setAqiText('Moderate');
-        }else if (data.aqi === 4) {
-            setAqiText('Poor');
-        }else if (data.aqi === 5) {
-            setAqiText('Very Poor');
-        }else {
-            setAqiText('Unable to determine air quality')
-        }
+        const aqiMap: Record<number, string> = {
+            1: 'Good',
+            2: 'Fair',
+            3: 'Moderate',
+            4: 'Poor',
+            5: 'Very Poor'
+        };
+
+        setAqiText(aqiMap[data.aqi] || 'Unable to determine air quality');
     }, [data.aqi]);
 
     return (
