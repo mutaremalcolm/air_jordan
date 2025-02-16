@@ -73,7 +73,6 @@ const AirData: React.FC = () => {
           aqi: data.list && data.list[0].main.aqi
         });
     } catch (error) {
-      console.error("Error fetching air pollution data:", error);
       setData(null);
     } finally {
       setIsLoading(false);
