@@ -2,6 +2,8 @@
   "name": "air_jordan",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -43,10 +45,14 @@
     "tailwindcss": "3.3.2"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
     "@types/lodash": "^4.17.15",
     "@types/node": "^20.4.8",
     "@types/react": "^18.2.19",
     "@types/react-autosuggest": "^10.1.6",
+    "jsdom": "^26.0.0",
     "typescript": "^5.1.6",
     "vitest": "^3.0.7"
   }
