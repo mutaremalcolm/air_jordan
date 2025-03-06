@@ -65,14 +65,6 @@ describe('SearchBar Component', () => {
     const input = screen.getByPlaceholderText('Search for a location...');
     fireEvent.change(input, { target: { value: 'New York' } });
     
-    // Wait for the API call
-    // await waitFor(() => {
-    //   expect(mockFetch).toHaveBeenCalledWith(
-    //     expect.stringContaining('/https:\/\/api\.mapbox\.com\/geocoding\/v5\/mapbox\.places\/New.*\.json/'),
-    //     expect.any(Object)
-    //   );
-    // });
-    
     // Check if suggestions are displayed
     await waitFor(() => {
       expect(screen.getByText('New York, NY, USA')).toBeInTheDocument();
