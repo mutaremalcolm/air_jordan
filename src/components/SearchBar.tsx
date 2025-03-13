@@ -16,6 +16,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ setLat, setLon }) => {
     const [suggestions, setSuggestions] = useState<MapboxFeature[]>([]);
     const [error, setError] = useState<string | null>(null);
 
+    //TODO: refactor secret key to not use Public by moving call to a server component
+    // API KEY for mapbox is currently public key safe for now but good practices need to followed
     const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOXGL_ACCESS_TOKEN;
 
     const fetchSuggestions = useCallback(
